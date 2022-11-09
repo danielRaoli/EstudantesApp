@@ -1,0 +1,71 @@
+﻿@model IEnumerable<EstudantesApp.Transporte.EstudanteDTO>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div>
+    <h2 class="text-info">Lista de estudantes</h2>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap@Base64FormattingOptions.6.1/dist/css/bootstrap.min.css" />
+    <script src="https://cdn.jsdelivr.net.jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+</div>
+
+
+@if(TempData["Sucess"]!= null){
+    <div class="alert alert-success alert-dismissible fade show">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Éxito!</strong> @TempData["Exito"]
+    </div>
+
+}
+@if(TempData["Error"]!=null){
+    <div class="alert alert-danger alert-dismissible fade show">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Error!</strong> @TempData["Error"]
+    </div>
+}
+<p>
+    <a role="button" class="btn btn-primary" asp-action="Create">Criar novo estudante</a>
+</p>
+@if (Model.Count() > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sobrenome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FechaInscrição)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sobrenome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaInscrição)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}else{
+    <p>the list is empty</p>
+}

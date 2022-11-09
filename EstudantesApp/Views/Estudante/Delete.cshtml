@@ -1,0 +1,53 @@
+﻿@model EstudantesApp.Transporte.EstudanteDTO
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<h2 class="text-info">delete student</h2>
+<div>
+    <h4>Estudante</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Sobrenome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sobrenome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaInscrição)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaInscrição)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaDate)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-2">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="submit" value="Delete" class="btn btn-danger" /> |
+                </div>
+                <div class="col-sm-2">
+                    <a role="button" class="btn btn-danger" asp-action="Index">Back to List</a>
+                </div>
+            </div>
+        </div>
+        
+    </form>
+</div>

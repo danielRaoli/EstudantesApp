@@ -1,0 +1,43 @@
+﻿@model EstudantesApp.Transporte.EstudanteDTO
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2 class="text-info" >details are students
+</h2>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Sobrenome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sobrenome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaInscrição)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaInscrição)
+        </dd>
+    </dl>
+</div>
+<div>
+    <div>
+        <div class="row">
+            <div class="col-sm-2">
+                <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-success form-control">Edit</a>
+            </div>|
+            <div class="col-sm-2">
+                <a asp-action="Index" class="btn btn-success form-control">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>
